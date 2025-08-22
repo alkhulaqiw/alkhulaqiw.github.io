@@ -1,0 +1,72 @@
+📌 دليل إعداد DNS لربط waleedalkhulaqi.website بـ GitHub Pages
+
+🎯 الهدف:
+ربط النطاق: waleedalkhulaqi.website
+بموقع GitHub Pages: https://waleedalkhulaqi.github.io
+
+🛠 أدوات مطلوبة:
+- لوحة تحكم Alibaba Cloud DNS
+- معرف النطاق: waleedalkhulaqi.website
+
+───────────────────────────────────────
+✅ الخطوات (خطوة بخطوة):
+
+1. اذهب إلى:
+   → Public Zone
+   → اختر النطاق: waleedalkhulaqi.website
+
+2. انقر على: "Add Record" (أو "Add DNS Record")
+
+3. أضف السجلات التالية:
+
+   🔹 السجل 1: A Record (النطاق الأساسي @)
+      - Record Type: A
+      - Host: @
+      - Value: 185.199.108.153
+      - TTL: 600 (أو Default)
+
+   🔹 السجل 2: A Record (احتياطي)
+      - Record Type: A
+      - Host: @
+      - Value: 185.199.109.153
+      - TTL: 600 (أو Default)
+
+   🔹 السجل 3: CNAME (لـ www)
+      - Record Type: CNAME
+      - Host: www
+      - Value: waleedalkhulaqi.github.io
+      - TTL: 600 (أو Default)
+
+4. بعد كل سجل، اضغط "OK" أو "Save"
+
+5. تأكد من أن السجلات ظهرت كالتالي:
+
+   Host       Type     Value
+   ----------------------------------
+   @          A        185.199.108.153
+   @          A        185.199.109.153
+   www        CNAME    waleedalkhulaqi.github.io
+
+6. اذهب إلى GitHub:
+   → Settings → Pages
+   → Custom Domain: waleedalkhulaqi.website
+   → Save
+
+7. فعّل HTTPS:
+   → Enforce HTTPS
+
+8. انتظر 1-2 ساعة حتى يتم تحديث DNS.
+
+9. تحقق من الموقع:
+   → https://waleedalkhulaqi.website
+   → https://www.waleedalkhulaqi.website
+
+✅ تم بنجاح!
+
+💡 ملاحظات مهمة:
+- لا تستخدم CNAME للنطاق الأساسي (@)
+- IP الخاص بـ GitHub: 185.199.108.153 و 185.199.109.153
+- إذا لم يعمل، انتظر 24 ساعة أو استخدم: https://dnschecker.org
+
+📧 هل تريد ملف PDF؟
+أرسل لي: "أريد ملف PDF" — وسأرسل لك دليلًا بصيغة PDF جاهز للطباعة!
